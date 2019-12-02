@@ -1,75 +1,108 @@
 // Home Content
 
 .home {
+    .intro {
+        .mainheaderpng {
+            border-radius: 1px;
+        }
 
-  .intro {
+        h2 {
+            padding: @h2spacing;
+        }
 
-    h2 {
-      padding: 15px;
+        p {
+            padding: 0 15px;
+        }
     }
 
-    p {
-      padding:0 15px;
-    }
-  
-  }
-
-  .space-images {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-
-    img {
-      width: 28%;
-      margin: 20px 2.5%;
-      border-radius: 20px;
-      height: 100%;
-    }
-  }
-
-  .visit-planets {
-    padding: 15px;
-
-    h3 {
-      margin-top: 11px;
-    }
-
-    p {
-      margin-top: 13px;
-    }
-  }
-
-  .walk {
-    margin-top: 60px;
-    border-top: 1px solid @main-border-color;
-    padding: 50px 60px;
-    display: flex;
-    justify-content: center;
-
-    .walk-text {
-      width: 50%;
-
-      h3 {
-        margin-bottom: 10px;
-      }
-
-      p {
-        margin-bottom: 26px;
-      }
-
-      .btn {
-      }
-    }
-
-    .walk-img {
-      width: 46%;
-      margin-left: 4%;
-      
-      img {
+    .space-images {
+        display: flex;
+        flex-wrap: wrap;
         width: 100%;
-        height: auto;
-        border-radius: 10px;
-      }
+
+        img {
+            width: 28%;
+            margin: 20px 2.5%;
+            border-radius: 20px;
+            height: 100%;
+        }
     }
-  }
-}// home
+
+    .visit-planets {
+        padding: 15px;
+
+        h3 {
+            margin-top: 11px;
+            color: @btn-bg-color;
+        }
+
+        p {
+            margin-top: 13px;
+        }
+    }
+
+    .walk {
+        margin-top: 60px;
+        border-top: 1px solid @main-border-color;
+        padding: 50px 60px;
+        display: flex;
+        justify-content: center;
+
+        .walk-text {
+            width: 50%;
+
+            h3 {
+                margin-bottom: 10px;
+                color: @btn-bg-color;
+            }
+
+            p {
+                margin-bottom: 26px;
+            }
+
+            .btn {
+                background-color: @btn-bg-color;
+                padding: 9px;
+                width: @lineheightandwidth;
+                height: 40px;
+                border-radius: 4px;
+                text-align: center;
+                vertical-align: middle;
+                line-height: @lineheightandwidth;
+                box-shadow: 4px 4px 4px #999;
+                p {
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    color: @buttonparacolor;
+                }
+                &:hover {
+                    background: @buttonparacolor;
+                    color: @btn-bg-color;
+                }
+            }
+        }
+
+        .walk-img {
+            width: 46%;
+            margin-left: 4%;
+
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+        }
+    }
+} // home
+
+@media(max-width: 500px) {
+    .space-images {
+        display: block;
+
+        img.sky {
+            display: none; 
+            margin: 0 auto; 
+       
+        }
+    }
+}
