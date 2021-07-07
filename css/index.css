@@ -11,6 +11,20 @@
 .navigation(.nav-tags (), .center()) 
 
 .btn (.btn p(),) .center()) */
+/* fonts are good for parametric mixins and mixins */
+/*variables are just plug-ins for properties */
+/* perimeters are symbols/plug-ins for properties */
+/*mixins- combining the CSS properties (padding,height) and selectors (p, img) */
+/* parametric mixin--- */
+/*
+.nav-tags (mixin)
+
+(@mybackground (this is the parameter (so this is the part that makes it a parametric mixin)))
+
+{ }  <--- all the stuff in here are properties 
+
+background: @mybackground--- the @mybackground part is connected to the parameter for the parametric mixin part thats in the parathesis which is connected to the .nav-tag (mixin). then when you go to where the less file is (in this case for the navigation part so navigation.less), you write the mixin as .nav-tags for example and then in paranthesis (make sure there's no space between mixin and parantheses), you write the actual property (in this case: red) and then the semi-colon. 
+*/
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -148,7 +162,7 @@ html {
 html,
 body {
   font-family: 'Ubuntu', sans-serif;
-  color: #5e6164;
+  color: black;
 }
 h1,
 h2,
@@ -156,7 +170,7 @@ h3,
 h4,
 h5 {
   font-family: 'Russo One', sans-serif;
-  color: #23293b;
+  color: black;
 }
 h2 {
   font-size: 3.2rem;
@@ -164,23 +178,20 @@ h2 {
 h3 {
   font-size: 2.8rem;
 }
-p {
-  font-size: 1.6rem;
-  line-height: 1.4;
-}
 .container {
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
 }
 .navigation {
-  background: #f5f5f5;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border: #f1f1f1;
+  background: #f5f5f5;
+  /* border: @seashell; */
   height: 80%;
+  /* parameter that you're passing in */
 }
 .navigation h1 {
   font-size: 3.5rem;
@@ -194,7 +205,7 @@ p {
 .navigation nav a {
   text-decoration: none;
   padding: 10px;
-  color: gray;
+  color: black;
   font-size: 15px;
 }
 footer {
@@ -207,6 +218,12 @@ footer {
   justify-content: center;
   align-items: center;
 }
+.home {
+  display: block;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .home .intro .mainheaderpng {
   border-radius: 1px;
 }
@@ -214,18 +231,18 @@ footer {
   padding: 15px;
 }
 .home .intro p {
-  padding: 0 15px;
+  font-size: 1.6rem;
+  padding: 10px 15px;
 }
 .home .space-images {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
+  flex-basis: 30%;
 }
 .home .space-images img {
-  width: 28%;
-  margin: 20px 2.5%;
-  border-radius: 20px;
-  height: 100%;
+  border-radius: 15px;
 }
 .home .visit-planets {
   padding: 15px;
@@ -236,10 +253,11 @@ footer {
 }
 .home .visit-planets p {
   margin-top: 13px;
+  font-size: 1.6rem;
 }
 .home .walk {
   margin-top: 60px;
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid grey;
   padding: 50px 60px;
   display: flex;
   justify-content: center;
@@ -253,26 +271,31 @@ footer {
 }
 .home .walk .walk-text p {
   margin-bottom: 26px;
+  font-size: 1.6rem;
 }
 .home .walk .walk-text .btn {
   background-color: #22283a;
-  padding: 9px;
+  height: 60px;
   width: 100px;
-  height: 40px;
+  overflow: hidden;
   border-radius: 4px;
   text-align: center;
   vertical-align: middle;
-  line-height: 100px;
   box-shadow: 4px 4px 4px #999;
+  background: #373738;
+  color: #dedede;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .home .walk .walk-text .btn p {
   font-size: 1.5em;
   font-weight: bold;
-  color: #fdfafa;
+  color: #707070;
 }
 .home .walk .walk-text .btn:hover {
-  background: #fdfafa;
-  color: #22283a;
+  background: #707070;
+  color: red;
 }
 .home .walk .walk-img {
   width: 46%;
@@ -284,11 +307,58 @@ footer {
   border-radius: 10px;
 }
 @media (max-width: 500px) {
+  .intro .mainheaderpng {
+    height: 150px;
+  }
+  .intro p {
+    font-size: 50px;
+  }
+  p {
+    font-size: 1rem;
+  }
   .space-images {
     display: block;
+    width: 500px;
   }
-  .space-images img.sky {
+  .space-images .spacediv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .space-images .spacediv img {
+    width: 400px;
+    height: 400px;
+  }
+  .space-images .skydiv {
     display: none;
-    margin: 0 auto;
+  }
+  .space-images .launchdiv {
+    display: none;
+  }
+  .walk {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding: 15px !important;
+  }
+  .walk img {
+    width: 400px !important;
+    height: 400px !important;
+  }
+  .walk .walk-text {
+    width: 400px !important;
+  }
+  .walk .walk-img {
+    width: 500px;
+    height: 500px;
+  }
+  .walk .btn {
+    width: 400px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dedede;
+    color: #373738;
   }
 }
